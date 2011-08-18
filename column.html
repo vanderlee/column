@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<title>Columns</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+		<script src="jquery.column-1.0.js"></script>
+		<script>				
+			$( function() {
+				$('#native').html($('#column').html());
+				
+				$('#column').column({
+					width: 250,
+					rule_style: 'solid',
+				});
+			});
+		</script>
+		<style>
+			body {
+				font-family: "Segoe UI", Arial, sans-serif;
+				font-size: 16px;
+			}
+			
+			.note {
+				background: #ffc;
+				margin: 20px 0 10px;
+				padding: 5px;
+				border: thin solid #cc3;
+			}
+			
+			#native {
+				-webkit-column-width:		250px;
+				-moz-column-width:			250px;
+				-o-column-width:			250px;	
+				-ms-column-width:			250px;
+				column-width:				250px;
+
+				-webkit-column-rule-style:	solid;
+				-moz-column-rule-style:		solid;
+				-o-column-rule-style:		solid;
+				-ms-column-rule-style:		solid;
+				column-rule-style:			solid;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="note">jQuery.column generated layout&hellip;</div>
+		<div id="column">
+			<h1>Onzin tekst</h1>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+			Integer urna ante, faucibus non venenatis et, iaculis vitae augue.
+			Fusce eu massa eget odio posuere aliquam.
+			Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+			Fusce id tellus est, sed sagittis dolor.<br/>
+			Curabitur bibendum rutrum tellus, ut tincidunt est iaculis non.
+			Sed imperdiet lorem sed nisl pretium vestibulum.
+			Suspendisse fermentum est ut odio faucibus eget consequat dolor pulvinar.
+			Curabitur ac ante in magna tempus consequat non vitae purus.<br/>
+			Quisque sagittis interdum libero sed dictum.
+			Duis sagittis dolor ac libero convallis tincidunt.
+			Donec libero turpis, sagittis eget iaculis at, commodo nec ipsum.
+			Donec vestibulum lectus eget dolor ultrices sed sollicitudin nibh ullamcorper.
+			Cras a nisi et lorem pulvinar dignissim.<br/>
+			Mauris porttitor, magna at volutpat dictum, est mi mollis ligula, sit amet auctor dolor velit vel leo.
+			Phasellus scelerisque porta sem, in consectetur ante facilisis vel.
+			Suspendisse eget quam ac velit lobortis feugiat in vel libero.
+			In luctus nisi ac libero malesuada scelerisque.
+			Sed tincidunt arcu ut est congue non lobortis orci ultrices.
+			Nam mauris velit, varius ut dignissim id, vestibulum vitae arcu.
+			Duis fermentum ullamcorper molestie.<br/>
+			In ultricies, enim porttitor placerat condimentum, tellus sapien vehicula lorem, et porttitor purus mi nec elit.
+			Morbi risus magna, scelerisque eu iaculis ut, sodales vitae lectus.<br/>
+			Aenean at eros a libero tempor molestie.
+			Integer quis turpis vitae lorem venenatis condimentum.
+			Quisque viverra pharetra placerat. Maecenas et massa tortor.
+			Aliquam porttitor risus vel arcu placerat lacinia.<br/>
+			In mollis lorem nisi.
+			Nam sed sapien odio, vitae rhoncus mauris.
+			Phasellus quis nunc nulla, vel malesuada turpis.
+			Nulla odio mauris, eleifend et sagittis at, aliquet sed elit.
+		</div>
+		
+		<div class="note">Native column layout (only available on browsers that support CSS3 columns)&hellip;</div>
+		<div id="native"></div>
+	</body>
+</html>
