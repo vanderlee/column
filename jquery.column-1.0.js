@@ -6,8 +6,6 @@
  * Emulate CSS3 style column on browsers that don't support it.
  */
  
-// also see: http://welcome.totheinter.net/2008/07/22/multi-column-layout-with-css-and-jquery/
- 
 //TODO Split on hyphens, &shy;, and others.
 //TODO Configurable splitter, using regex patterns. ('syllables', 'words', 'sentences', 'punctuation', function)
 //TODO Add classes to different columns; 'column', 'last-column', 'first-column', use inner-div's so stuff can be layed out with CSS.
