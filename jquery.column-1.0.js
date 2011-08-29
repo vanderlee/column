@@ -12,7 +12,13 @@
 //TODO Configurable splitter, using regex patterns. ('syllables', 'words', 'sentences', 'punctuation', function)
 //TODO Add classes to different columns; 'column', 'last-column', 'first-column', use inner-div's so stuff can be layed out with CSS.
 //TODO Accept "em" as measurement. Also other measurements: px, % (why?), in, mm(=in), cm(=cm), ex, pt(=in), pc(=in)
+	//TODO Use $.px() if available (but keep overwriting %)
 //TODO Iterative balancing
+//TODO Experiment with normalizing... doesn't seem to work well. Is this even wanted?
+//TODO Make balancing into strategy pattern.
+//TODO Adjust strategy for column width calculation; does not match chrome strategy.
+//TODO Postprocess: Top-of-column == h1? margin-top: 0;
+//TODO Split strategies for lists and others (different node types).
 
 //TODO Just do this inside the strategies; not worth the namespace polution.
 if (String.prototype.indexOfRegExp == null) {
@@ -110,32 +116,34 @@ if (String.prototype.indexOfRegExp == null) {
 				// Clear columns
 				$(element).empty();
 			
+				var column_gap		= (settings.gap == parseFloat(settings.gap))? settings.gap : gap_normal;
+				
+				if (settings.rule_style != 'none') {
+					var rule_color = (settings.rule_color? settings.rule_color : $(element).css('color'));
+					var rule_width = (settings.rule_width == parseFloat(settings.rule_width)? settings.rule_width : border_widths[settings.rule_width]);				
+					column_gap		-= rule_width;
+				}				
+				
 				if (settings.width != 'auto') {
-					var column_count = Math.floor($(element).width() / settings.width);
+					var column_count = Math.floor(($(element).width() + rule_width) / (settings.width + column_gap));
 				} else if (settings.count != 'auto') {
 					var column_count = settings.count;
 				} else {
 					return;
 				}
 				
-				var column_gap		= (settings.gap == parseFloat(settings.gap))? settings.gap : gap_normal;								
 				var width			= $(element).width() - ((column_count - 1) * column_gap);
 				var column_width	= Math.floor(width / column_count);
-												
-				if (settings.rule_style != 'none') {
-					var rule_color = (settings.rule_color? settings.rule_color : $(element).css('color'));
-					var rule_width = (settings.rule_width == parseFloat(settings.rule_width)? settings.rule_width : border_widths[settings.rule_width]);				
-					column_gap		-= rule_width;
-				}
-				
+																
 				// Setup columns
 				var left = 0;
 				for (var c = 0; c < column_count; ++c) {
 					var style	= 'position:absolute;'
 								+ (c > 0?				 'left:'+left+'px;' : '')
 								+ 'width:'+column_width+'px;'
-								+ (c > 0?				 'padding-left:'+(column_gap / 2)+'px;' : '')
-								+ (c < column_count - 1? 'padding-right:'+(column_gap / 2)+'px;' : '')
+								+ (c > 0?				 'padding-left:'+Math.ceil(column_gap / 2)+'px;' : '')
+								+ (c < column_count - 1? 'padding-right:'+Math.floor(column_gap / 2)+'px;' : '')
+								+ 'overflow:hidden;'
 								;
 					left += column_width;
 					left += column_gap;
@@ -183,7 +191,7 @@ if (String.prototype.indexOfRegExp == null) {
 					
 					max_height = Math.max(max_height, div.height());
 				}
-				
+
 				// Set all to the same height
 				$('div', element).css('height', max_height);
 				$(element).css('height', max_height);
