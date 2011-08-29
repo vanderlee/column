@@ -3,6 +3,7 @@
 	<head>
 		<title>Columns</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+		<link href="http://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet" type="text/css"/>
 		<script src="jquery.column-1.0.js"></script>
 		<script>				
 			$( function() {
@@ -27,6 +28,15 @@
 				border: thin solid #cc3;
 			}
 			
+			pre {
+				background-color: white;
+				padding: 		10px;
+				border:			solid 1px gray;
+				box-shadow: 	inset 2px 2px 8px #ddd;
+				font-family:	'Droid Sans Mono', 'Courier New', Courier, monospace;
+				font-size:		1em;
+			}			
+			
 			#native {
 				-webkit-column-width:		250px;
 				-moz-column-width:			250px;
@@ -44,6 +54,10 @@
 	</head>
 
 	<body>
+<pre>$('#column').column({
+	width: 250,
+	rule_style: 'solid',
+});</pre>
 		<div class="note">jQuery.column generated layout&hellip;</div>
 		<div id="column">
 			<h1>Big header</h1>
