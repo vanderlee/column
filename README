@@ -14,7 +14,7 @@ Arguments:
 	context (required)
 		This should point to the DOM node(s) that hold the content to be columnized.
 		Typically this is a <div> element, but other elements are possible.
-	options (optional)
+	options (required)
 		An array or object containing any of the following options (based on CSS3 options).
 		width (default 'auto')
 			This option works like CSS3 "column-width". Use it to specify the width of each
