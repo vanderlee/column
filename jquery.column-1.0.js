@@ -84,7 +84,7 @@ if (String.prototype.indexOfRegExp == null) {
 		function _split(parent) {
 			var contents = new Array;
 			$(parent).contents().each( function(index, value) {
-				if (value.nodeType == 3) {						// Node.TEXT_NODE
+				if (value.nodeType == 3 && typeof value.nodeValue != "string") {	// IE9 bugfix?
 					contents = contents.concat(split_strategies[settings.split](value));
 				} else {
 					contents.push(value);
