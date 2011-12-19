@@ -64,7 +64,11 @@ if (String.prototype.indexOfRegExp == null) {
 							do {
 								contents.push(node);
 								if (split = node.nodeValue.indexOfRegExp('\\s+') + 1) {
-									node = node.splitText(split);
+									if (split < node.length) {
+										node = node.splitText(split);
+									} else {
+										split = 0;
+									}
 								}
 							} while (split);
 							return contents;
@@ -74,7 +78,11 @@ if (String.prototype.indexOfRegExp == null) {
 							do {
 								contents.push(node);
 								if (split = node.nodeValue.indexOfRegExp('[.:!?]+') + 1) {
-									node = node.splitText(split);
+									if (split < node.length) {
+										node = node.splitText(split);
+									} else {
+										split = 0;
+									}
 								}
 							} while (split);
 							return contents;
