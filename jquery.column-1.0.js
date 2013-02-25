@@ -161,7 +161,7 @@ if (String.prototype.indexOfRegExp == null) {
 				}
 
 				// Determine height of total content in a single column
-				var first = $('div', element).first();
+				var first = $(element).children('div').first();
 				var height = first.html(content).height();
 				first.empty();
 				var height_step = Math.ceil(height / column_count);
@@ -171,7 +171,7 @@ if (String.prototype.indexOfRegExp == null) {
 				var max_height = 0;
 				var i = 0;
 				for (var c = 0; c < column_count; ++c) {
-					var div = $('div', element).eq(c);
+					var div = $(element).children('div').eq(c);
 
 					if (c < column_count - 1) {
 						// detect overflow
@@ -199,7 +199,7 @@ if (String.prototype.indexOfRegExp == null) {
 				}
 
 				// Set all to the same height
-				$('div', element).css('height', max_height);
+				$(element).children('div').css('height', max_height);
 				$(element).css('height', max_height);
 			}
 		});
