@@ -36,7 +36,8 @@ if (String.prototype.indexOfRegExp == null) {
 			'rule_color':	'',
 			'rule_style':	'none',
 			'rule_width':	'medium',
-			'split':		'word'
+			'split':		'word',
+			'callback':		null
 		};
 
 		var border_widths	= {	thin:	_measure_border_width('thin'),
@@ -101,7 +102,7 @@ if (String.prototype.indexOfRegExp == null) {
 			return contents;
 		}
 
-		return this.each( function() {
+		var r = this.each( function() {
 			// Merge options
 			if (options) {
 				$.extend(settings, options);
@@ -203,5 +204,10 @@ if (String.prototype.indexOfRegExp == null) {
 				$(element).css('height', max_height);
 			}
 		});
+		// call callback
+		if (typeof settings.callback == 'function') {
+			settings.callback.call();
+		}
+		return r;
 	};
 })( jQuery );
