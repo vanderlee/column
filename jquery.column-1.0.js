@@ -36,7 +36,10 @@ if (String.prototype.indexOfRegExp == null) {
 			'rule_color':	'',
 			'rule_style':	'none',
 			'rule_width':	'medium',
-			'split':		'word'
+			'split':		'word',
+			
+			'before':		null,
+			'after':		null
 		};
 
 		var border_widths	= {	thin:	_measure_border_width('thin'),
@@ -114,7 +117,11 @@ if (String.prototype.indexOfRegExp == null) {
 			return contents;
 		}
 
-		return this.each( function() {
+		if (typeof settings.before == 'function') {
+			settings.before.call();
+		}
+
+		var r = this.each( function() {
 			// Merge options
 			if (options) {
 				$.extend(settings, options);
@@ -215,6 +222,13 @@ if (String.prototype.indexOfRegExp == null) {
 				$('div', element).css('height', max_height);
 				$(element).css('height', max_height);
 			}
+
 		});
+
+		if (typeof settings.after == 'function') {
+			settings.after.call();
+		}
+
+		return r;
 	};
 })( jQuery );
