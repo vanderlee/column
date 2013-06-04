@@ -72,5 +72,5 @@ Returns the selected DOM elements so you can chain this plug-in like regulaer jQ
 	Make sure you set at least one of 'count' or 'width' to enable columnization.
 	
 #### Also see:
-	http://welcome.totheinter.net/2008/07/22/multi-column-layout-with-css-and-jquery/
-		A similar plug-in which works in a different way with different features
+http://welcome.totheinter.net/2008/07/22/multi-column-layout-with-css-and-jquery/
+A similar plug-in which works in a different way with different features
