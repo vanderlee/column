@@ -1,7 +1,7 @@
-# jQuery.column v1.0
+# jQuery.column v1.0.1
 https://github.com/vanderlee/column
 
-Copyright (c) 2011 Martijn W. van der Lee
+Copyright (c) 2015 Martijn W. van der Lee
 Licensed under the MIT.
 
 Simulate CSS3-style automatic columnization for the few browsers (IE) that don't support it.
@@ -74,3 +74,16 @@ Returns the selected DOM elements so you can chain this plug-in like regulaer jQ
 #### Also see:
 http://welcome.totheinter.net/2008/07/22/multi-column-layout-with-css-and-jquery/
 A similar plug-in which works in a different way with different features
+
+#### To do:
+*	Split on hyphens, &shy;, and others.
+*   Configurable splitter, using regex patterns. ('syllables', 'words', 'sentences', 'punctuation', function)
+*   Add classes to different columns; 'column', 'last-column', 'first-column', use inner-div's so stuff can be layed out with CSS.
+*   Accept "em" as measurement. Also other measurements: px, % (why?), in, mm(=in), cm(=cm), ex, pt(=in), pc(=in)
+*   Use $.px() if available (but keep overwriting %)
+*   Iterative balancing
+*   Experiment with normalizing... doesn't seem to work well. Is this even wanted?
+*   Make balancing into strategy pattern.
+*   Adjust strategy for column width calculation; does not match chrome strategy.
+*   Postprocess: Top-of-column == h1? margin-top: 0;
+*	Split strategies for lists and others (different node types).
