@@ -1,0 +1,36 @@
+{
+	"name": "column",
+	"version": "1.0.1",
+	"title": "Vanderlee Column",
+	"description": "Emulate CSS3 style column on browsers that don't support it.",
+	"author": {
+			"name": "Martijn van der Lee",
+			"url": "https://github.com/vanderlee/column",
+			"email": "martijn@vanderlee.com"
+	},
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "http://opensource.org/licenses/MIT"
+		}
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/vanderlee/column.git"
+	},
+	"dependencies": {
+		"jquery": ">=1.4.0"
+	},
+	"homepage": "https://github.com/vanderlee/column",
+	"demo": "http://vanderlee.github.com/column/",
+	"download":"https://github.com/vanderlee/column",
+	"bugs": "https://github.com/vanderlee/column/issues",
+	"maintainers": [
+		{
+			"name": "Martijn van der Lee",
+			"url": "https://github.com/vanderlee/column",
+			"email": "martijn@vanderlee.com"
+		}
+	],
+	"keywords": ["column", "css", "css3", "polyfill"]
+}

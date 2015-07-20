@@ -1,0 +1,28 @@
+{
+  "name": "Vanderlee Column",
+  "version": "1.0.1",
+  "homepage": "https://github.com/vanderlee/column",
+  "authors": [
+    "Martijn van der Lee <martijn@vanderlee.com>"
+  ],
+  "description": "Emulate CSS3 style column on browsers that don't support it.",
+  "main": "jquery.column.js",
+  "keywords": [
+    "jquery",
+    "column",
+    "css",
+    "css3",
+    "polyfill"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+	"jquery": ">=1.4.0"
+  }
+}

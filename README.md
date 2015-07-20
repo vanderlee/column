@@ -1,11 +1,14 @@
 # jQuery.column v1.0.1
 https://github.com/vanderlee/column
 
-Copyright (c) 2015 Martijn W. van der Lee
+Copyright (c) 2011-2015 Martijn W. van der Lee
 Licensed under the MIT.
 
 Simulate CSS3-style automatic columnization for the few browsers (IE) that don't support it.
 It tries to follow CSS3 specification (http://www.w3.org/TR/css3-multicol/) closely.
+
+Requires jQuery 1.4.0 or more recent.
+Tested upto jQuery 2.1.3.
 
 ## Syntax
 `$(<context>).column(<options>);`
