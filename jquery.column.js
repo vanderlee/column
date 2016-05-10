@@ -114,7 +114,7 @@
 			// worker
 			function _resize() {
 				// Clear columns
-				$(element).empty();
+				$(element).find(">*").detach();
 
 				var column_gap		= (settings.gap === parseFloat(settings.gap))? settings.gap : gap_normal,
 					rule_width		= 0,
@@ -161,7 +161,7 @@
 				// Determine height of total content in a single column
 				var first = $('div', element).first();
 				var height = first.html(content).height();
-				first.empty();
+				first.find(">*").detach();
 				var height_step = Math.ceil(height / column_count);
 
 				// Fill columns
@@ -184,7 +184,7 @@
 						}
 
 						// retract last part of content
-						div.contents().last().remove();
+						div.contents().last().detach();
 						--i;
 					} else {
 						// dump remaining content in the last column
