@@ -129,9 +129,9 @@
 				}
 
 				if (settings.width !== 'auto') {
-					column_count = Math.floor(($(element).width() + rule_width) / (settings.width + column_gap));
+					column_count = Math.max(1, Math.floor(($(element).width() + rule_width) / (settings.width + column_gap)));
 				} else if (settings.count !== 'auto') {
-					column_count = settings.count;
+					column_count = Math.max(1, settings.count);
 				} else {
 					return;
 				}
