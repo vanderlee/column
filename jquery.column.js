@@ -14,7 +14,7 @@
 	"use strict";
 
 	$.fn.column = function(options) {
-		var settings = {
+		var settings = $.extend({
 				'count':		'auto',
 				'gap':			'normal',
 				'rule_color':	'',
@@ -24,7 +24,7 @@
 				'width':		'auto',
 				'after':		null,
 				'before':		null
-			},
+			}, options || {}),
 			measureEm = function(scope) {
 				var element = $('<div style="display:none;height:100em;margin:0;padding:0;border:0"/>').appendTo(scope),
 					px = element.height() / 100;
@@ -96,11 +96,6 @@
 		}
 
 		var result = this.each(function() {
-			// Merge options
-			if (options) {
-				$.extend(settings, options);
-			}
-
 			// per-instance settings
 			var element			= this,
 				content			= $(this).html(),	// entire bulk
@@ -109,7 +104,7 @@
 
 			// the active part
 			_resize();	// do once pre-load so we atleast have columns
-			$(window).resize(_resize).load(_resize);
+			$(window).on('resize load', _resize);
 
 			// worker
 			function _resize() {
